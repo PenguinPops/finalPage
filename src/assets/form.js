@@ -187,11 +187,12 @@ function verifySend() {
     document.getElementById('form-container').appendChild(returnButton);
 }
 
-function createButton(image, title) {
+function createButton(image, title, sale) {
     const button = document.createElement('div');
     button.classList.add('checkbox-btn');
     button.style.backgroundImage = `url(${image})`;
     button.innerHTML = '<p class=\'checkboxtitle\'>' + title + '</p>';
+    if(sale) button.innerHTML = '<p class=\'checkboxtitle\'>' + title + '\n 50% zniżki!</p>'
     button.onclick = function() {
         toggleCheckbox(this);
     };
@@ -201,7 +202,10 @@ function createButton(image, title) {
 function renderButtons(data) {
     const radioButtons = document.getElementById('radioButtons');
     data.forEach((item, index) => {
-        const button = createButton(item.image, item.title);
+        let salesw = parseInt(localStorage.getItem('qResult'));
+        let sale = 0;
+        if(salesw==index) sale = 1;
+        const button = createButton(item.image, item.title, sale);
         button.id = `btn${index + 1}`;
         radioButtons.appendChild(button);
     });
