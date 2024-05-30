@@ -66,6 +66,11 @@ function nextStep() {
             updateForm();
         }
     }
+    else {
+        if(verifyPart(currentStep)) {
+            verifySend();
+        }
+    }
 }
 
 function verifyPart(step) {
