@@ -1,0 +1,95 @@
+
+  .main-wrapper {
+    font-family: Arial, sans-serif;
+    background-color: blue;
+    color: white;
+    overflow: scroll;
+    margin: -8px;
+    padding: 0;
+        background: linear-gradient(-45deg, #cf96d49f, #6d5835, #93680a, #ae7a36);
+        background-size: 400% 400%;
+        animation: gradient 15s ease infinite;
+        height: 100vh;
+
+    
+  }
+  
+  @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+  .main-content {
+    min-height: calc(100vh - 100px); /* Adjust based on header and footer height */
+    padding-top: 50px; /* Adjust based on header height */
+    padding-bottom: 50px; /* Adjust based on footer height */
+  }
+  
+  header {
+    padding: 20px 0;
+    text-align: center;
+    background: rgb(0,0,0,0.3);
+    /* background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);  */
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    width: 64px; /* Adjust based on logo size */
+    height: auto;
+  }
+  
+  .website-name {
+    font-size: 24px;
+    color: white;
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+  }
+
+  .website-name p {
+    margin-left: 5%;
+  }
+  
+  nav {
+    display: flex;
+    margin-right: 95px;
+  }
+
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 300;
+    padding: 10%;
+    background-color: rgba(0, 0, 0, 0.006);
+    border-radius: 1vh;
+    margin-right: 4%;
+    transition: color 0.3s ease;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav a:hover {
+    color: rgb(18, 18, 18);
+    background-color: rgba(196, 196, 196, 0.334);
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: black;
+    padding: 10px 0;
+    text-align: center;
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 100%); 
+  }
+  
