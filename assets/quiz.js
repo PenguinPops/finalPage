@@ -53,7 +53,15 @@ function loadQuestion() {
     document.getElementById('answerD').innerText = questionData.answers.D;
 }
 
-function showResult(result) {
+function showResult(index) {
+    let results = [];
+    fetch('https://penguinpops.github.io/fp-fake-api/data.json')
+    .then(response => response.json())
+    .then(data => {
+        results = data;
+    })
+    .catch(error => console.error('Error fetching data:', error));
+    let result = results[index];
     const quizContainer = document.querySelector('.quiz-container');
     quizContainer.innerHTML = `
         <div class="result-container">
@@ -81,7 +89,7 @@ function selectAnswer(answer) {
             localStorage.setItem("qStatus", qStatus);
             const qResult = ansTable.indexOf(Math.max(...ansTable));
             localStorage.setItem("qResult", qResult);
-            showResult(results[qResult]);
+            showResult(qResult);
         }
         quizContainer.style.opacity = '1';
     }, 600);
