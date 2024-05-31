@@ -1,3 +1,27 @@
+.radio-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5vh;
+    height: 20vw;
+    width: 100%;
+}
+
+.checkbox-btn {
+    padding: 15px;
+    width: 20%;
+    text-align: center;
+    margin: 5px;
+    border: 4px solid transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: border 0.3s;
+    background-size: 110%;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+}
+
+
 .checkbox-btn:nth-child(1) {
     background-color: rgb(64, 31, 7);
     background-size: 220%;
@@ -47,7 +71,7 @@
     color: white;
     font-weight: 1000;
     display: flex;
-    justify-content: space-between;
-    height:20%;
+    height:auto;
     width: 100%;
+    flex-wrap: wrap;
 }

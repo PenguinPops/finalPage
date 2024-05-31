@@ -66,6 +66,11 @@ function nextStep() {
             updateForm();
         }
     }
+    else {
+        if(verifyPart(currentStep)) {
+            verifySend();
+        }
+    }
 }
 
 function verifyPart(step) {
@@ -204,7 +209,7 @@ function renderButtons(data) {
     data.forEach((item, index) => {
         let salesw = parseInt(localStorage.getItem('qResult'));
         let sale = 0;
-        if(salesw==index) sale = 1;
+        if (salesw == index) sale = 1;
         const button = createButton(item.image, item.title, sale);
         button.id = `btn${index + 1}`;
         radioButtons.appendChild(button);
@@ -212,7 +217,12 @@ function renderButtons(data) {
 }
 
 function renderAll() {
-    renderButtons(results);
-    updateForm();
+    fetch('https://penguinpops.github.io/fp-fake-api/data.json')
+        .then(response => response.json())
+        .then(data => {
+            renderButtons(data);
+            updateForm(); 
+        })
+        .catch(error => console.error('Error fetching data:', error));
 }
 

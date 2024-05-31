@@ -110,28 +110,6 @@
     text-align: center;
 }
 
-.radio-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5vh;
-    height: 20vw;
-    width: 100%;
-}
-
-.checkbox-btn {
-    padding: 15px;
-    width: 20%;
-    text-align: center;
-    margin: 5px;
-    border: 4px solid transparent;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: border 0.3s;
-    background-size: 110%;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-}
 
 
 
