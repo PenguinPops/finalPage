@@ -54,24 +54,23 @@ function loadQuestion() {
 }
 
 function showResult(index) {
-    let results = [];
     fetch('https://penguinpops.github.io/fp-fake-api/data.json')
     .then(response => response.json())
     .then(data => {
-        results = data;
+        let result = data[index];
+        const quizContainer = document.querySelector('.quiz-container');
+        quizContainer.innerHTML = `
+            <div class="result-container">
+                <img src="${result.image}" alt="${result.title}" class="result-image">
+                <h2 class="result-title">${result.title}</h2>
+                <p class="result-content">${result.content}</p>
+                <div class="answer" id="qReset" onclick="resetQuiz()">Powtórz quiz</div>
+            </div>
+        `;
     })
     .catch(error => console.error('Error fetching data:', error));
-    let result = results[index];
-    const quizContainer = document.querySelector('.quiz-container');
-    quizContainer.innerHTML = `
-        <div class="result-container">
-            <img src="${result.image}" alt="${result.title}" class="result-image">
-            <h2 class="result-title">${result.title}</h2>
-            <p class="result-content">${result.content}</p>
-            <div class="answer" id="qReset" onclick="resetQuiz()">Powtórz quiz</div>
-        </div>
-    `;
 }
+
 
 
 function selectAnswer(answer) {
@@ -101,8 +100,8 @@ let ansTable;
 function checkQuiz() {
     
     if(localStorage.getItem("qStatus") === 'done'){
-        const result = localStorage.getItem("qResult");
-        showResult(results[result]);
+        const result = parseInt(localStorage.getItem("qResult"));
+        showResult(result);
     }
     else if(localStorage.getItem("qStatus") === 'inprog') {
         const storedAnsTable = localStorage.getItem('ansTable');
